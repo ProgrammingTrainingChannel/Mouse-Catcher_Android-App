@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.btitsolutions.cookiecatcher.Utilities.RateThisApp;
-import com.google.android.gms.ads.MobileAds;
 
 public class StarterActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSetting, btnStart, btnRateUs;
@@ -22,8 +21,6 @@ public class StarterActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_starter);
 
         context = this;
-        MobileAds.initialize(this, "ca-app-pub-8168171128315421~3161015155");
-        //RateThisApp.app_launched(this);
 
         btnSetting = (Button)findViewById(R.id.btnSetting);
         btnStart = (Button)findViewById(R.id.btnStart);

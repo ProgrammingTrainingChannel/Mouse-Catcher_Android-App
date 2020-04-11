@@ -19,8 +19,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.btitsolutions.cookiecatcher.Utilities.RateThisApp;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     ImageView eater, firstMouse, secondMouse, thirdMouse, fourthMouse, poisonedMouse;
     FrameLayout frame;
     Button btnPause;
-    private InterstitialAd mInterstitialAd;
 
     private int score = 0;
     private int missedCounter = -4;
@@ -77,12 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         setContentView(R.layout.activity_main);
         final Context context = this;
         context_1 = this;
-
-        mInterstitialAd = new InterstitialAd(this);
-        //ca-app-pub-3940256099942544/1033173712 -- test ad unit id
-        //
-        mInterstitialAd.setAdUnitId("ca-app-pub-8168171128315421/7838626761");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         soundPlayer = new SoundPlayer(this);
         lblScore = (TextView)findViewById(R.id.lblScore);
@@ -326,12 +317,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             timer = null;
 
             soundPlayer.PlayGameOverSound();
-
-            if(score > 100){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                }
-            }
 
             OpenResultDialog();
         }
